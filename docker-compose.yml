@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+  web:
+    build:
+      context: .
+      target: developer
+    ports:
+      - "8080:8080"
+      - "9876:9876"
+    volumes:
+      - .:/container/:Z
+    environment:
+      - BUILD_NUMBER=nobuildforlocalenv
+      - DEPLOY_NUMBER=nodeployforlocalenv
+      - VERSION=noversionforlocalenv
+      - GIT_COMMIT=notgitcommitforlocalenv
+    tty: true
+    stdin_open: true
+    entrypoint: ash
+    privileged: true
+

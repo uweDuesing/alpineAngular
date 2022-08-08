@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AplineAngular": {
+    "AlpineAngular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AplineAngular:build:production"
+              "browserTarget": "AlpineAngular:build:production"
             },
             "development": {
-              "browserTarget": "AplineAngular:build:development"
+              "browserTarget": "AlpineAngular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AplineAngular:build"
+            "browserTarget": "AlpineAngular:build"
           }
         },
         "test": {
@@ -103,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7c63af1d-fe10-4b97-8054-e914b62f568b"
   }
 }
