@@ -14,9 +14,18 @@ export class AppComponent implements OnInit {
   public timeAuckland: string = '';
   public timeBerlin: string = '';
   public timeSanFran: string = '';
+  public ws: any;
 
   ngOnInit() {
+    this.ws = new WebSocket('ws://127.0.0.1:4200',[]);
+    this.ws.onopen = () => {
 
+    }
+    this.ws.onmessage = (event: any) => {
+      const msg = event.data;
+      console.log(msg);
+
+    };
     setInterval(() => {
       this.timeAuckland = DateTime.now().setZone('Pacific/Auckland').toFormat('HH:mm:ss (EEEE)')
       this.timeBerlin = DateTime.now().setZone('Europe/Berlin').toFormat('HH:mm:ss (EEEE)')
