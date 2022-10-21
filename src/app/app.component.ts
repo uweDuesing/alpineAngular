@@ -15,15 +15,16 @@ export class AppComponent implements OnInit {
   public timeBerlin: string = '';
   public timeSanFran: string = '';
   public ws: any;
+  public socketMsg: string = '';
 
   ngOnInit() {
-    this.ws = new WebSocket('ws://127.0.0.1:4200',[]);
+    this.ws = new WebSocket('ws://127.0.0.1:4200', []);
     this.ws.onopen = () => {
 
     }
     this.ws.onmessage = (event: any) => {
-      const msg = event.data;
-      console.log(msg);
+      this.socketMsg = event.data;
+
 
     };
     setInterval(() => {
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
 if (typeof Worker !== 'undefined') {
   // Create a new
   const worker = new Worker(new URL('./app.worker.ts', import.meta.url));
-  worker.onmessage = ({ data }) => {
+  worker.onmessage = ({data}) => {
     console.log(`page got message: ${data}`);
   };
   worker.postMessage('hello');
